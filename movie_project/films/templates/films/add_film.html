@@ -1,0 +1,35 @@
+{% extends 'films/base.html' %}
+
+{% block title %}
+<title>Добавить фильм</title>
+{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h2 class="mb-0">Добавить новый фильм</h2>
+            </div>
+            <div class="card-body">
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        {{ form.title }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.description }}
+                    </div>
+                    <div class="mb-3">
+                        {{ form.comments }}
+                    </div>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <button type="submit" class="btn btn-primary me-md-2">Сохранить</button>
+                    </div>
+                </form>
+                <p>{{error}}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
